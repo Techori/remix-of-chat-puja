@@ -1,5 +1,20 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794216651775,
+      "tag": "0000_connect_account_profile_trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794216787980,
+      "tag": "0001_rename_account_profile_trigger",
+      "breakpoints": true
+    }
+  ]
 }
