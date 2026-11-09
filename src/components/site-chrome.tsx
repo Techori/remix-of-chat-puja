@@ -26,7 +26,7 @@ export function SiteHeader() {
     setTheme(readSiteTheme(localStorage.getItem("riloyd-theme")));
   }, []);
 
-  // Festive stays in Chhath Puja colours; only the garland and pictures swap Chhath ↔ Diwali every 2 seconds.
+  // Festive stays in Chhath Puja colours; only the garland and pictures swap Chhath ↔ Diwali every 5 seconds.
   useEffect(() => {
     applySiteTheme(theme);
     if (theme !== "festive") return;

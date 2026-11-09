@@ -23,15 +23,15 @@ describe('festive Chhath Puja design', () => {
     expect(usesLightSurfaces('festive')).toBe(true);
     expect(usesLightSurfaces('dark')).toBe(false);
   });
-  it('swaps decorations between Chhath and Diwali every 2 seconds', () => {
+  it('swaps decorations between Chhath and Diwali every 5 seconds', () => {
     expect(festiveDecorations).toEqual(['chhath', 'diwali']);
-    expect(FESTIVE_DECORATION_MS).toBe(2_000);
+    expect(FESTIVE_DECORATION_MS).toBe(5_000);
     expect(festiveDecorationAt(0)).toBe('chhath');
-    expect(festiveDecorationAt(1_999)).toBe('chhath');
-    expect(festiveDecorationAt(2_000)).toBe('diwali');
-    expect(festiveDecorationAt(4_000)).toBe('chhath');
+    expect(festiveDecorationAt(4_999)).toBe('chhath');
+    expect(festiveDecorationAt(5_000)).toBe('diwali');
+    expect(festiveDecorationAt(10_000)).toBe('chhath');
   });
-  it('waits until the next 2-second mark', () => {
-    expect(msUntilNextDecorationSwitch(500)).toBe(1_500);
+  it('waits until the next 5-second mark', () => {
+    expect(msUntilNextDecorationSwitch(500)).toBe(4_500);
   });
 });

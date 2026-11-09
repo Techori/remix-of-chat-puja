@@ -6,8 +6,8 @@ export type SiteTheme = typeof siteThemes[number];
 export const festiveDecorations = ['chhath', 'diwali'] as const;
 export type FestiveDecoration = typeof festiveDecorations[number];
 
-/** The garland and pictures swap between Chhath and Diwali every 2 seconds. */
-export const FESTIVE_DECORATION_MS = 2 * 1000;
+/** The garland and pictures swap between Chhath and Diwali every 5 seconds. */
+export const FESTIVE_DECORATION_MS = 5 * 1000;
 
 export const siteThemeLabels: Record<SiteTheme, string> = { dark: 'Dark', light: 'Light', festive: 'Festive' };
 export const festiveDecorationLabels: Record<FestiveDecoration, string> = { chhath: 'Chhath Puja', diwali: 'Diwali' };
