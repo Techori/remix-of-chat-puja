@@ -72,7 +72,7 @@ export function SiteHeader() {
       {navItems.map((item) => activeMarket && activeMarket.slug !== "india" && item.label === "Services" ? <Link key={item.label} to="/global-presence/$slug" params={{ slug: activeMarket.slug }} hash="services" onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold">Services</Link> : <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold last:border-0">{item.label}</Link>)}
       <Link to="/register" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-bold text-primary">Register Now →</Link>
     </nav>}
-    {theme === 'diwali' && <div className="diwali-decoration" aria-hidden="true"><div className="diwali-toran" style={{ backgroundImage: `url(${diwaliToran})` }} /></div>}
+    {theme === 'festive' && <div className={`diwali-decoration ${variant}-decoration`} aria-hidden="true" title={festiveVariantLabels[variant]}><div className="diwali-toran" style={{ backgroundImage: `url(${variant === 'chhath' ? chhathToran : diwaliToran})` }} /></div>}
   </header>;
 }
 
