@@ -126,14 +126,14 @@ function Index() {
             <h1 className="headline text-[clamp(2.75rem,5.2vw,5.5rem)] font-black uppercase leading-[0.87]">
               Strategy today.<br />A stronger<br /><span className="text-primary">tomorrow.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-soft md:text-lg">
+            <p className="hero-copy mt-6 max-w-xl text-base leading-relaxed text-soft md:text-lg">
               RILOYD partners with ambitious businesses to analyze opportunities, secure funding,
               scale sales and drive transformation — turning vision into measurable growth.
             </p>
             <Link to="/contact" className="solid-cta mt-6 inline-flex items-center gap-3 rounded-md bg-primary px-8 py-3.5 text-sm font-extrabold text-primary-foreground">
               Let&apos;s Talk <ArrowRight size={17} />
             </Link>
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-soft sm:tracking-[0.38em]">
+            <div className="hero-pillars mt-5 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-soft sm:tracking-[0.38em]">
               <span>People</span><i /><span>Ideas</span><i /><span>Capital</span><i /><span>Growth</span><b />
             </div>
           </div>
