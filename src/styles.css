@@ -582,3 +582,13 @@
 }
 .chhath .young-challenge-page .young-challenge-hero { --background: oklch(0.975 0.025 85); --foreground: oklch(0.24 0.06 35); }
 .chhath .hero-tagline { display: none !important; }
+
+/* Festive = Chhath Puja colours always; garland and pictures crossfade Chhath ↔ Diwali every 2 seconds. */
+.diwali-decoration > .diwali-toran { position: absolute; inset: 0; transition: opacity .7s ease; }
+.festive-toran-diwali, :root[data-festive-decor="diwali"] .festive-toran-chhath { opacity: 0; }
+:root[data-festive-decor="diwali"] .festive-toran-diwali { opacity: 1; }
+.chhath .diwali-art { display: block; opacity: 0; }
+.chhath :is(.diwali-art, .chhath-art) { transition: opacity .7s ease; }
+:root.chhath[data-festive-decor="diwali"] .diwali-art { opacity: 1; }
+:root.chhath[data-festive-decor="diwali"] .chhath-art { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .diwali-decoration > .diwali-toran, .chhath :is(.diwali-art, .chhath-art) { transition: none; } }
