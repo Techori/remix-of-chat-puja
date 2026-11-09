@@ -1,0 +1,1 @@
+- Site themes live in `site-theme.ts`: the switch offers only dark, light and festive; festive picks a festival design from the wall clock (shared rotation for every visitor) and each design is an isolated, removable class block in `src/styles.css`, so festivals can be added or retired without touching dark/light.

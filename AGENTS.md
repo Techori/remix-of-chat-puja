@@ -46,6 +46,4 @@
 - Use lazy-loaded admin panels and server-validated access/setup eligibility; discard stale access responses and clear protected caches on sign-out.
 - Prototype AI payment/permission pauses require explicit admin reset after access recovery, never automatic inference retries.
 
-- Sitemap paths derive from explicit route staticData decisions and shared service slugs; exclude private/noindex pages and omit lastmod without authoritative page timestamps.
-- Student review changes only approved/rejected status through an admin-validated server function and column-scoped RLS writes; approval never publishes minors or confirms payment.
-- Site themes live in `src/lib/site-theme.ts`: the switch offers only dark, light and festive; festive picks a festival design from the wall clock (shared rotation for every visitor) and each design is an isolated, removable class block in `src/styles.css`, so festivals can be added or retired without touching dark/light.
+- Student review sets only approved/rejected via an admin-validated server function and column-scoped RLS; approval never publishes minors or confirms payment.

@@ -1,0 +1,1 @@
+- Sitemap paths derive from explicit route staticData decisions and shared service slugs; exclude private/noindex pages and omit lastmod without authoritative page timestamps.
