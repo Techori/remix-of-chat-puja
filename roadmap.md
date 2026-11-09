@@ -115,5 +115,6 @@
 
 - [x] Remove Bigger/Bolder/Brighter/Together from home hero in Diwali theme
 - [x] Confirm empty migration set
-- [ ] Young Innovators registrations: confirm saved in admin + owner email per new registration
-- [ ] Diwali theme: readable text colours in header and hero (desktop + mobile)
+- [x] Young Innovators registrations saved + shown in admin
+- [ ] Owner email per new student registration — blocked: needs a verified email domain + owner address
+- [x] Diwali theme: readable text colours in header and hero (desktop + mobile)
