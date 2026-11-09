@@ -124,3 +124,4 @@
 - [ ] Festive only: every white haze over pictures (hero, Why Riloyd, Get in Touch, all pages) 90% see-through
 - [ ] Admin setup check: country logos + programme fees tables recognised; admin panel loads them
 - [ ] Whole-site loading speed: optimise slow pages/images
+- [ ] Festive: remove white glow behind text everywhere (e.g. 'Transform today for a stronger tomorrow.')
