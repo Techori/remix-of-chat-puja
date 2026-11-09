@@ -133,7 +133,7 @@ function Index() {
               <span>People</span><i /><span>Ideas</span><i /><span>Capital</span><i /><span>Growth</span><b />
             </div>
           </div>
-          <div className="ml-auto hidden self-start pt-16 text-right lg:block">
+          <div className="hero-tagline ml-auto hidden self-start pt-16 text-right lg:block">
             <p className="text-lg font-semibold uppercase leading-[1.45] tracking-[0.2em]">Bigger<br />Bolder<br />Brighter<br />Together</p>
             <span className="mt-4 ml-auto block h-0.5 w-10 bg-primary" />
           </div>

@@ -112,3 +112,7 @@
 - [x] Toran: transparent background, overlaps content on every page
 - [x] Diwali theme: readable font colours
 - [ ] Connect riloyd.in, publish, verify in Search Console (blocked: paid plan needed for domain; publish not approved)
+
+- [x] Remove Bigger/Bolder/Brighter/Together from home hero in Diwali theme
+- [x] Confirm empty migration set
+- [ ] Link riloyd Search Console connection
