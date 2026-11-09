@@ -592,3 +592,16 @@
 :root.chhath[data-festive-decor="diwali"] .diwali-art { opacity: 1; }
 :root.chhath[data-festive-decor="diwali"] .chhath-art { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .diwali-decoration > .diwali-toran, .chhath :is(.diwali-art, .chhath-art) { transition: none; } }
+
+/* Festive only: every white haze over pictures is 90% see-through (10% opacity). */
+.chhath .hero-shell::after { background: linear-gradient(0deg, oklch(0.97 0.03 85 / .1), transparent 30%); }
+.chhath .hero-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .1) 0%, oklch(0.98 0.03 85 / .1) 34%, oklch(0.98 0.03 85 / .03) 66%, transparent); }
+.chhath :is(.why-shade, .contact-shade) { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .1), oklch(0.98 0.03 85 / .07) 50%, transparent 80%); }
+.chhath .young-challenge-page .young-challenge-shade, .chhath .innovators-shade, .chhath .prototype-hero .hero-shade { background: linear-gradient(90deg, oklch(0.975 0.025 85 / .1), oklch(0.975 0.025 85 / .08) 30%, transparent 68%); }
+@media (max-width: 1023px) {
+  .chhath .hero-shade { background: oklch(0.98 0.03 85 / .1); }
+  .chhath :is(.why-shade, .contact-shade) { background: oklch(0.98 0.03 85 / .1); }
+}
+/* With the haze thinner, a soft cream glow keeps dark text readable over the pictures. */
+.chhath :is(.why-panel, .contact-band) :is(h2, h3, p, li, span) { text-shadow: 0 1px 10px oklch(0.99 0.02 85 / .95), 0 0 2px oklch(0.99 0.02 85 / .9); }
+.chhath :is(.hero-shell, .young-challenge-hero, .innovators-hero, .prototype-hero) :is(h1, h2, p, span) { text-shadow: 0 1px 10px oklch(0.99 0.02 85 / .95), 0 0 2px oklch(0.99 0.02 85 / .9); }
