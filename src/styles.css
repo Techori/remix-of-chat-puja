@@ -503,3 +503,80 @@
 @media (max-width: 1023px) { .diwali .hero-shade { background: linear-gradient(180deg, oklch(0.1 0.04 15 / .7) 0%, oklch(0.1 0.04 15 / .82) 55%, oklch(0.1 0.04 15 / .6) 100%); } }
 .diwali .young-challenge-page { --muted-foreground: oklch(0.9 0.035 85); }
 .diwali .hero-shell h1 .text-primary { text-shadow: none; filter: drop-shadow(0 2px 6px oklch(0 0 0 / .8)); }
+
+/* ===== Chhath Puja festival design (light sunrise palette; rotates with Diwali inside Festive) ===== */
+.chhath-art { display: none; }
+.chhath .chhath-art { display: block; }
+.chhath {
+  --background: oklch(0.975 0.025 85);
+  --footer: oklch(0.93 0.05 75);
+  --surface: oklch(0.945 0.045 80);
+  --card: oklch(0.99 0.015 85);
+  --card-foreground: oklch(0.26 0.06 35);
+  --popover: oklch(0.99 0.015 85);
+  --popover-foreground: oklch(0.26 0.06 35);
+  --foreground: oklch(0.26 0.06 35);
+  --soft: oklch(0.32 0.06 40);
+  --primary: oklch(0.6 0.19 45);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.92 0.06 80);
+  --secondary-foreground: oklch(0.26 0.06 35);
+  --muted: oklch(0.93 0.04 80);
+  --muted-foreground: oklch(0.4 0.05 45);
+  --accent: oklch(0.9 0.07 135);
+  --accent-foreground: oklch(0.3 0.08 140);
+  --border: oklch(0.82 0.08 70);
+  --input: oklch(0.8 0.07 70);
+  --ring: oklch(0.6 0.19 45);
+  --chhath-leaf: oklch(0.5 0.13 145);
+  --chhath-glow: 0 0 22px oklch(0.8 0.16 70 / .35);
+  --chhath-ripple: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23d97a1f' stroke-opacity='.12' stroke-width='1.2'%3E%3Ccircle cx='70' cy='60' r='16'/%3E%3Cpath d='M70 30v-10M70 100v-10M40 60H30M110 60h-10M49 39l-7-7M98 88l-7-7M91 39l7-7M42 88l7-7'/%3E%3Cpath d='M20 118q12-8 25 0t25 0 25 0 25 0'/%3E%3Cpath d='M30 130q10-6 20 0t20 0 20 0 20 0'/%3E%3C/g%3E%3C/svg%3E");
+}
+.chhath body { background: radial-gradient(ellipse at top, oklch(0.93 0.08 75), transparent 60%), var(--background); }
+.chhath header { background-color: oklch(0.98 0.03 85 / .96); border-bottom: 2px solid var(--primary); }
+.chhath header nav a { color: var(--foreground); }
+.chhath header nav a[data-status="active"], .chhath header nav a.active { color: var(--primary); }
+.chhath .diwali-toran { filter: drop-shadow(0 5px 8px oklch(0.45 0.1 50 / .35)); }
+.chhath main section:not(.hero-shell):not(.contact-band) { background-image: var(--chhath-ripple); background-size: 140px; }
+.chhath footer { background-image: var(--chhath-ripple); background-size: 160px; border-top: 2px solid var(--primary); }
+.chhath :is(h1,h2,h3) .text-primary { background: linear-gradient(90deg, oklch(0.62 0.2 40), oklch(0.72 0.17 65)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.chhath .eyebrow { color: var(--chhath-leaf); }
+.chhath .solid-cta { background: linear-gradient(135deg, oklch(0.7 0.18 55), oklch(0.6 0.2 38)); color: var(--primary-foreground); box-shadow: var(--chhath-glow); }
+.chhath .service-item svg:first-child, .chhath #about svg { color: var(--primary); }
+.chhath .service-item a:hover { background: oklch(0.93 0.06 80); box-shadow: inset 0 -3px 0 var(--primary); }
+.chhath .stat-block strong { color: var(--primary); }
+
+/* Home-page picture bands keep dark sunrise-maroon text over a soft cream veil. */
+.chhath :is(.hero-shell, .why-panel, .contact-band) {
+  --foreground: oklch(0.24 0.06 35);
+  --soft: oklch(0.3 0.06 40);
+  --muted-foreground: oklch(0.36 0.05 45);
+  color: var(--foreground);
+}
+.chhath .hero-shell::after { background: linear-gradient(0deg, oklch(0.97 0.03 85 / .55), transparent 30%); }
+.chhath .headline, .chhath .hero-shell :is(h1,p,.text-soft) { text-shadow: 0 1px 12px oklch(0.99 0.02 85 / .9); }
+.chhath .hero-shell h1 .text-primary { text-shadow: none; filter: none; }
+.chhath .hero-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .96) 0%, oklch(0.98 0.03 85 / .82) 34%, oklch(0.98 0.03 85 / .15) 66%, transparent); }
+.chhath .why-shade, .chhath .contact-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .95), oklch(0.98 0.03 85 / .7) 50%, transparent 80%); }
+.chhath .hero-shell > .relative { padding-top: 3.5rem; }
+@media (max-width: 1023px) {
+  .chhath .hero-shade { background: linear-gradient(180deg, oklch(0.98 0.03 85 / .88) 0%, oklch(0.98 0.03 85 / .8) 60%, oklch(0.98 0.03 85 / .45) 100%); }
+  .chhath .why-shade, .chhath .contact-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .95), oklch(0.98 0.03 85 / .82)); }
+}
+@media (max-width: 639px) {
+  .chhath .hero-shell > .relative { padding-top: 2.75rem; }
+  .chhath main section:not(.hero-shell):not(.contact-band) { background-size: 100px; }
+  .chhath .solid-cta { width: 100%; justify-content: center; }
+}
+.chhath .young-challenge-page {
+  --background: oklch(0.975 0.025 85);
+  --surface: oklch(0.945 0.045 80);
+  --foreground: oklch(0.24 0.06 35);
+  --primary: oklch(0.58 0.19 42);
+  --muted-foreground: oklch(0.38 0.05 45);
+  --border: oklch(0.82 0.08 70);
+  --challenge-gold: oklch(0.5 0.12 65);
+  --challenge-wine: oklch(0.93 0.05 75);
+  --challenge-glow: var(--chhath-glow);
+}
+.chhath .young-challenge-page .young-challenge-hero { --background: oklch(0.975 0.025 85); --foreground: oklch(0.24 0.06 35); }
