@@ -15,6 +15,8 @@ import { serviceOrder, serviceConfigs } from "@/lib/service-config";
 import { marketOrder, marketConfigs, findMarket } from "@/lib/market-config";
 import { internationalServices } from "@/lib/international-programme";
 
+const FOUNDATION_URL = "https://foundation.riloyd.in/";
+
 export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isGlobalPage = pathname.startsWith("/global-presence");
@@ -60,6 +62,7 @@ export function SiteHeader() {
       <Link to="/" aria-label={activeMarket ? `Riloyd ${activeMarket.name} home` : isGlobalPage ? "Riloyd Global home" : "Riloyd home"} className="block h-[59px] w-[188px] shrink-0 sm:w-[208px]">{activeMarket ? <CountryLogo market={activeMarket} className="h-full w-full object-contain object-left" /> : <img src={isGlobalPage ? (lightSurfaces ? globalLight : globalGlossy) : (lightSurfaces ? darkLogo : logoAsset)} alt={isGlobalPage ? "Riloyd Global" : "Riloyd"} className="h-full w-full object-contain object-left" decoding="async" />}</Link>
       <nav aria-label="Main navigation" className="hidden items-center justify-center gap-6 text-xs font-bold xl:gap-9 lg:flex">
         {navItems.map((item) => activeMarket && activeMarket.slug !== "india" && item.label === "Services" ? <Link key={item.label} to="/global-presence/$slug" params={{ slug: activeMarket.slug }} hash="services" className="nav-link">Services</Link> : <Link key={item.label} to={item.to} className={`nav-link ${pathname === item.to ? "nav-active" : ""}`}>{item.label}</Link>)}
+        <a href={FOUNDATION_URL} target="_blank" rel="noopener noreferrer" className="nav-link">RILOYD Foundation</a>
       </nav>
       <div className="flex shrink-0 items-center gap-2">
         <Button type="button" variant="ghost" size="icon" className="h-9 w-9" onClick={toggleTheme} aria-label={`Switch to ${nextLabel} theme`} title={`Switch to ${nextLabel} theme`}>{theme === "dark" ? <Sun className="h-4 w-4" /> : theme === "light" ? <Flame className="h-4 w-4" /> : <Moon className="h-4 w-4" />}</Button>
@@ -69,6 +72,7 @@ export function SiteHeader() {
     </div>
     {menuOpen && <nav aria-label="Mobile navigation" className="absolute inset-x-0 top-full z-40 flex flex-col border-b border-border bg-background px-5 py-3 shadow-xl lg:hidden">
       {navItems.map((item) => activeMarket && activeMarket.slug !== "india" && item.label === "Services" ? <Link key={item.label} to="/global-presence/$slug" params={{ slug: activeMarket.slug }} hash="services" onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold">Services</Link> : <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold last:border-0">{item.label}</Link>)}
+      <a href={FOUNDATION_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold">RILOYD Foundation</a>
       <Link to="/register" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-bold text-primary">Register Now →</Link>
     </nav>}
     {theme === 'festive' && <div className="diwali-decoration" aria-hidden="true"><div className="diwali-toran festive-toran-chhath" style={{ backgroundImage: `url(${chhathToran})` }} /><div className="diwali-toran festive-toran-diwali" style={{ backgroundImage: `url(${diwaliToran})` }} /></div>}
