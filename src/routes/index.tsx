@@ -180,7 +180,7 @@ function Index() {
             <div className="relative z-10 max-w-xl">
               <p className="eyebrow text-[10px] font-bold uppercase">Why Riloyd</p>
               <h2 className="mt-3 text-3xl font-black uppercase leading-[0.98] sm:text-4xl lg:text-5xl">We build businesses that <span className="text-primary">create impact.</span></h2>
-              <p className="mt-4 max-w-lg text-sm leading-relaxed text-soft">RILOYD is a business advisory and transformation company helping ambitious entrepreneurs, SMEs and enterprises build a stronger, sustainable future.</p>
+              <p className="why-copy mt-4 max-w-lg text-sm leading-relaxed text-soft">RILOYD is a business advisory and transformation company helping ambitious entrepreneurs, SMEs and enterprises build a stronger, sustainable future.</p>
               <Link to="/about" className="solid-cta mt-5 inline-flex items-center gap-3 rounded-md bg-primary px-6 py-3 text-sm font-extrabold text-primary-foreground">About Riloyd <ArrowRight size={16} /></Link>
             </div>
           </div>
