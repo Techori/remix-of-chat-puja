@@ -604,11 +604,11 @@
 /* Festive: plain text, no glow or shadow behind any words. */
 .chhath :is(h1, h2, h3, h4, p, li, span, a, .headline, .text-soft) { text-shadow: none; }
 
-/* Festive on phones: keep the thin haze; give the hero paragraph its own soft cream card so it reads over the photo. */
+/* Festive on phones: thin haze, plain text (no box behind the hero paragraph); photo framed so the busy part sits low. */
 @media (max-width: 639px) {
   .chhath .hero-shell .headline { font-size: clamp(2.35rem, 11vw, 2.9rem); line-height: .9; }
-  .chhath .hero-shell .hero-copy { margin-top: 1.1rem; font-size: .95rem; line-height: 1.55; padding: .75rem .9rem; border-radius: .6rem; background: oklch(0.985 0.025 85 / .82); color: oklch(0.24 0.06 35); }
-  .chhath .hero-shell .hero-pillars { width: fit-content; max-width: 100%; padding: .45rem .75rem; border-radius: 999px; background: oklch(0.985 0.025 85 / .82); color: oklch(0.24 0.06 35); gap: .5rem; letter-spacing: .14em; }
+  .chhath .hero-shell .hero-copy { margin-top: 1.1rem; font-size: .95rem; line-height: 1.55; font-weight: 500; color: oklch(0.2 0.06 35); }
+  .chhath .hero-shell .hero-pillars { gap: .5rem; letter-spacing: .14em; color: oklch(0.2 0.06 35); }
   .chhath .hero-shell .hero-pillars b { display: none; }
   .chhath .hero-shell :is(.chhath-art, .diwali-art) { object-position: 78% 100%; }
   .chhath .why-panel :is(h2, p), .chhath .contact-band :is(h2, p) { overflow-wrap: anywhere; }
