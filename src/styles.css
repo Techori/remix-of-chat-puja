@@ -547,7 +547,7 @@
 .chhath .stat-block strong { color: var(--primary); }
 
 /* Home-page picture bands keep dark sunrise-maroon text over a soft cream veil. */
-.chhath :is(.hero-shell, .why-panel, .contact-band) {
+.light.chhath :is(.hero-shell, .why-panel, .contact-band) {
   --foreground: oklch(0.24 0.06 35);
   --soft: oklch(0.3 0.06 40);
   --muted-foreground: oklch(0.36 0.05 45);
@@ -580,3 +580,4 @@
   --challenge-glow: var(--chhath-glow);
 }
 .chhath .young-challenge-page .young-challenge-hero { --background: oklch(0.975 0.025 85); --foreground: oklch(0.24 0.06 35); }
+.chhath .hero-tagline { display: none !important; }
