@@ -553,14 +553,15 @@
   --muted-foreground: oklch(0.36 0.05 45);
   color: var(--foreground);
 }
-.chhath .hero-shell::after { background: linear-gradient(0deg, oklch(0.97 0.03 85 / .55), transparent 30%); }
+.chhath .hero-shell::after { background: linear-gradient(0deg, oklch(0.97 0.03 85 / .2), transparent 30%); }
 .chhath .headline, .chhath .hero-shell :is(h1,p,.text-soft) { text-shadow: 0 1px 12px oklch(0.99 0.02 85 / .9); }
 .chhath .hero-shell h1 .text-primary { text-shadow: none; filter: none; }
-.chhath .hero-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .96) 0%, oklch(0.98 0.03 85 / .82) 34%, oklch(0.98 0.03 85 / .15) 66%, transparent); }
+/* White veil kept 80% transparent so the sunrise picture shows through. */
+.chhath .hero-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .2) 0%, oklch(0.98 0.03 85 / .2) 34%, oklch(0.98 0.03 85 / .05) 66%, transparent); }
 .chhath .why-shade, .chhath .contact-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .95), oklch(0.98 0.03 85 / .7) 50%, transparent 80%); }
 .chhath .hero-shell > .relative { padding-top: 3.5rem; }
 @media (max-width: 1023px) {
-  .chhath .hero-shade { background: linear-gradient(180deg, oklch(0.98 0.03 85 / .88) 0%, oklch(0.98 0.03 85 / .8) 60%, oklch(0.98 0.03 85 / .45) 100%); }
+  .chhath .hero-shade { background: oklch(0.98 0.03 85 / .2); }
   .chhath .why-shade, .chhath .contact-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .95), oklch(0.98 0.03 85 / .82)); }
 }
 @media (max-width: 639px) {
