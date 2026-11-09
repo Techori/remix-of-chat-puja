@@ -1,41 +1,5 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "7",
-      "when": 1793430396236,
-      "tag": "0000_recreate_site_schema",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1793431125676,
-      "tag": "0001_secure_admin_setup_and_record_import",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1793433295386,
-      "tag": "0002_complete_application_publishing_and_setup_checks",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1793433588226,
-      "tag": "0003_restrict_internal_account_and_role_functions",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1793434912442,
-      "tag": "0004_admin_student_registration_review",
-      "breakpoints": true
-    }
-  ]
+  "entries": []
 }

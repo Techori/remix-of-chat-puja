@@ -1,2 +1,0 @@
-GRANT UPDATE(status) ON public.young_innovators_registrations TO authenticated;
-CREATE POLICY "Admins review student registrations" ON public.young_innovators_registrations FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin'::public.app_role)) WITH CHECK (public.has_role(auth.uid(), 'admin'::public.app_role));
