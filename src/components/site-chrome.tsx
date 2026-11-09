@@ -2,7 +2,7 @@ import { CountryLogo } from "@/components/country-logo";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Instagram, Linkedin, Menu, Moon, Sun, Flame } from "lucide-react";
-import { applySiteTheme, nextSiteTheme, readSiteTheme, type SiteTheme } from '@/lib/site-theme';
+import { applySiteTheme, nextSiteTheme, readSiteTheme, siteThemeLabels, type SiteTheme } from '@/lib/site-theme';
 import diwaliToran from '@/assets/diwali-toran.webp';
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/local/riloyd-logo.png.optimized.nav.webp";
@@ -49,7 +49,7 @@ export function SiteHeader() {
         {navItems.map((item) => activeMarket && activeMarket.slug !== "india" && item.label === "Services" ? <Link key={item.label} to="/global-presence/$slug" params={{ slug: activeMarket.slug }} hash="services" className="nav-link">Services</Link> : <Link key={item.label} to={item.to} className={`nav-link ${pathname === item.to ? "nav-active" : ""}`}>{item.label}</Link>)}
       </nav>
       <div className="flex shrink-0 items-center gap-2">
-        <Button type="button" variant="ghost" size="icon" className="h-9 w-9" onClick={toggleTheme} aria-label={`Switch to ${nextSiteTheme(theme)} theme`} title={`Switch to ${nextSiteTheme(theme)} theme`}>{theme === "dark" ? <Sun className="h-4 w-4" /> : theme === "light" ? <Flame className="h-4 w-4" /> : <Moon className="h-4 w-4" />}</Button>
+        <Button type="button" variant="ghost" size="icon" className="h-9 w-9" onClick={toggleTheme} aria-label={`Switch to ${siteThemeLabels[nextSiteTheme(theme)]} theme`} title={`Switch to ${siteThemeLabels[nextSiteTheme(theme)]} theme`}>{theme === "dark" ? <Sun className="h-4 w-4" /> : theme === "light" ? <Flame className="h-4 w-4" /> : <Moon className="h-4 w-4" />}</Button>
         <Button asChild variant="outline" className="hidden h-8 rounded-full border-primary px-4 text-[11px] font-bold lg:inline-flex"><Link to="/register">Register Now <ArrowRight size={14} /></Link></Button>
         <Button type="button" variant="ghost" size="icon" className="h-9 w-9 lg:hidden" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu size={19} /></Button>
       </div>
