@@ -127,3 +127,4 @@
 - [ ] Festive: remove white glow behind text everywhere (e.g. 'Transform today for a stronger tomorrow.')
 - [ ] Festive on phones: fit + text sizes + icons; hero paragraph readable over photo, haze kept
 - [ ] Remove white box behind home hero paragraph ('RILOYD partners with…')
+- [ ] Add 'RILOYD Foundation' button to the menu
