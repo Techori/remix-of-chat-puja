@@ -125,3 +125,4 @@
 - [ ] Admin setup check: country logos + programme fees tables recognised; admin panel loads them
 - [ ] Whole-site loading speed: optimise slow pages/images
 - [ ] Festive: remove white glow behind text everywhere (e.g. 'Transform today for a stronger tomorrow.')
+- [ ] Festive on phones: fit + text sizes; hero paragraph readable over photo, haze kept

@@ -41,10 +41,10 @@ export function applySiteTheme(theme: SiteTheme) {
   root.classList.toggle('light', light);
   root.classList.remove('diwali');
   root.classList.toggle('chhath', theme === 'festive');
-  if (theme !== 'festive') delete root.dataset.festiveDecor;
+  if (theme !== 'festive') delete root.dataset['festiveDecor'];
   root.style.colorScheme = light ? 'light' : 'dark';
 }
 
 export function applyFestiveDecoration(decoration: FestiveDecoration) {
-  document.documentElement.dataset.festiveDecor = decoration;
+  document.documentElement.dataset['festiveDecor'] = decoration;
 }
