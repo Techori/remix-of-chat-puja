@@ -554,7 +554,6 @@
   color: var(--foreground);
 }
 .chhath .hero-shell::after { background: linear-gradient(0deg, oklch(0.97 0.03 85 / .2), transparent 30%); }
-.chhath .headline, .chhath .hero-shell :is(h1,p,.text-soft) { text-shadow: 0 1px 12px oklch(0.99 0.02 85 / .9); }
 .chhath .hero-shell h1 .text-primary { text-shadow: none; filter: none; }
 /* White veil kept 80% transparent so the sunrise picture shows through. */
 .chhath .hero-shade { background: linear-gradient(90deg, oklch(0.98 0.03 85 / .2) 0%, oklch(0.98 0.03 85 / .2) 34%, oklch(0.98 0.03 85 / .05) 66%, transparent); }
@@ -602,6 +601,5 @@
   .chhath .hero-shade { background: oklch(0.98 0.03 85 / .1); }
   .chhath :is(.why-shade, .contact-shade) { background: oklch(0.98 0.03 85 / .1); }
 }
-/* With the haze thinner, a soft cream glow keeps dark text readable over the pictures. */
-.chhath :is(.why-panel, .contact-band) :is(h2, h3, p, li, span) { text-shadow: 0 1px 10px oklch(0.99 0.02 85 / .95), 0 0 2px oklch(0.99 0.02 85 / .9); }
-.chhath :is(.hero-shell, .young-challenge-hero, .innovators-hero, .prototype-hero) :is(h1, h2, p, span) { text-shadow: 0 1px 10px oklch(0.99 0.02 85 / .95), 0 0 2px oklch(0.99 0.02 85 / .9); }
+/* Festive: plain text, no glow or shadow behind any words. */
+.chhath :is(h1, h2, h3, h4, p, li, span, a, .headline, .text-soft) { text-shadow: none; }
