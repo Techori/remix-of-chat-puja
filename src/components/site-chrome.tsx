@@ -2,8 +2,9 @@ import { CountryLogo } from "@/components/country-logo";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Instagram, Linkedin, Menu, Moon, Sun, Flame } from "lucide-react";
-import { applySiteTheme, nextSiteTheme, readSiteTheme, siteThemeLabels, type SiteTheme } from '@/lib/site-theme';
+import { applySiteTheme, festiveVariantAt, festiveVariantLabels, msUntilNextFestiveSwitch, nextSiteTheme, readSiteTheme, siteThemeLabels, usesLightSurfaces, type FestiveVariant, type SiteTheme } from '@/lib/site-theme';
 import diwaliToran from '@/assets/diwali-toran.webp';
+import chhathToran from '@/assets/chhath-toran.webp';
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/local/riloyd-logo.png.optimized.nav.webp";
 import darkLogoAsset from "@/assets/local/riloyd-logo-dark.png.optimized.nav.webp";
@@ -18,22 +19,35 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isGlobalPage = pathname.startsWith("/global-presence");
   const activeMarket = isGlobalPage ? findMarket(pathname.split("/")[2] ?? "") : undefined;
-  const [theme, setTheme] = useState<SiteTheme>("diwali");
+  const [theme, setTheme] = useState<SiteTheme>("festive");
+  const [variant, setVariant] = useState<FestiveVariant>("diwali");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("riloyd-theme");
-    const next = readSiteTheme(stored);
-    setTheme(next);
-    applySiteTheme(next);
+    setTheme(readSiteTheme(localStorage.getItem("riloyd-theme")));
   }, []);
+
+  // Festive theme alternates Diwali and Chhath Puja on each 5-minute mark.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const tick = () => {
+      const now = Date.now();
+      const current = festiveVariantAt(now);
+      setVariant(current);
+      applySiteTheme(theme, current);
+      if (theme === "festive") timer = setTimeout(tick, msUntilNextFestiveSwitch(now) + 50);
+    };
+    tick();
+    return () => clearTimeout(timer);
+  }, [theme]);
 
   function toggleTheme() {
     const next = nextSiteTheme(theme);
     setTheme(next);
     localStorage.setItem("riloyd-theme", next);
-    applySiteTheme(next);
   }
+  const lightSurfaces = usesLightSurfaces(theme, variant);
+  const nextLabel = siteThemeLabels[nextSiteTheme(theme)];
 
   const navItems = [
     { label: "Home", to: "/" as const },
