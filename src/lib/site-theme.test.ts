@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FESTIVE_ROTATION_MS, festiveVariantAt, msUntilNextFestiveSwitch, nextSiteTheme, readSiteTheme, siteThemes, usesLightSurfaces } from './site-theme';
+import { FESTIVE_DECORATION_MS, festiveDecorationAt, festiveDecorations, msUntilNextDecorationSwitch, nextSiteTheme, readSiteTheme, siteThemes, usesLightSurfaces } from './site-theme';
 
 describe('three site themes', () => {
   it('offers only dark, light and festive', () => {
@@ -18,20 +18,20 @@ describe('three site themes', () => {
   });
 });
 
-describe('festive rotation', () => {
-  it('switches between Diwali and Chhath Puja every 5 minutes', () => {
-    expect(FESTIVE_ROTATION_MS).toBe(300_000);
-    expect(festiveVariantAt(0)).toBe('diwali');
-    expect(festiveVariantAt(299_999)).toBe('diwali');
-    expect(festiveVariantAt(300_000)).toBe('chhath');
-    expect(festiveVariantAt(600_000)).toBe('diwali');
+describe('festive Chhath Puja design', () => {
+  it('always uses the light Chhath colours, never the dark Diwali theme', () => {
+    expect(usesLightSurfaces('festive')).toBe(true);
+    expect(usesLightSurfaces('dark')).toBe(false);
   });
-  it('waits until the next 5-minute mark', () => {
-    expect(msUntilNextFestiveSwitch(60_000)).toBe(240_000);
+  it('swaps decorations between Chhath and Diwali every 2 seconds', () => {
+    expect(festiveDecorations).toEqual(['chhath', 'diwali']);
+    expect(FESTIVE_DECORATION_MS).toBe(2_000);
+    expect(festiveDecorationAt(0)).toBe('chhath');
+    expect(festiveDecorationAt(1_999)).toBe('chhath');
+    expect(festiveDecorationAt(2_000)).toBe('diwali');
+    expect(festiveDecorationAt(4_000)).toBe('chhath');
   });
-  it('Chhath Puja uses light colours while Diwali stays dark', () => {
-    expect(usesLightSurfaces('festive', 'chhath')).toBe(true);
-    expect(usesLightSurfaces('festive', 'diwali')).toBe(false);
-    expect(usesLightSurfaces('dark', 'chhath')).toBe(false);
+  it('waits until the next 2-second mark', () => {
+    expect(msUntilNextDecorationSwitch(500)).toBe(1_500);
   });
 });
