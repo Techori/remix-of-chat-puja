@@ -10,6 +10,7 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { FESTIVE_DECORATION_MS } from "@/lib/site-theme";
 import { CountryLogosProvider } from "@/components/country-logo";
 
 function NotFoundComponent() {
