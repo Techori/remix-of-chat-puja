@@ -10,6 +10,7 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { FESTIVE_DECORATION_MS } from "@/lib/site-theme";
 import { CountryLogosProvider } from "@/components/country-logo";
 
 function NotFoundComponent() {
@@ -82,11 +83,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: false,
 });
 
+const themeBootScript = `(function(){try{var t=localStorage.getItem('riloyd-theme');if(t!=='dark'&&t!=='light')t='festive';var r=document.documentElement;r.classList.toggle('light',t!=='dark');if(t==='festive'){r.classList.add('chhath');r.dataset.festiveDecor=Math.floor(Date.now()/${FESTIVE_DECORATION_MS})%2?'diwali':'chhath';}r.style.colorScheme=t==='dark'?'dark':'light';}catch(e){}})();`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        {/* Apply the saved theme before first paint so the right pictures load and nothing flashes. */}
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
       <body>
         {children}

@@ -31,7 +31,7 @@ import visionImageAsset from "@/assets/local/about-vision.jpg.optimized.webp";
 const visionImage = visionImageAsset;
 import mapImageAsset from "@/assets/local/global-map.jpg.optimized.webp";
 const mapImage = mapImageAsset;
-import logoAsset from "@/assets/local/riloyd-logo.png.optimized.webp";
+import logoAsset from "@/assets/local/riloyd-logo.png.optimized.640.webp";
 
 export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },

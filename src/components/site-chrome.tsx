@@ -2,7 +2,7 @@ import { CountryLogo } from "@/components/country-logo";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Instagram, Linkedin, Menu, Moon, Sun, Flame } from "lucide-react";
-import { applySiteTheme, festiveVariantAt, festiveVariantLabels, msUntilNextFestiveSwitch, nextSiteTheme, readSiteTheme, siteThemeLabels, usesLightSurfaces, type FestiveVariant, type SiteTheme } from '@/lib/site-theme';
+import { applyFestiveDecoration, applySiteTheme, festiveDecorationAt, msUntilNextDecorationSwitch, nextSiteTheme, readSiteTheme, siteThemeLabels, usesLightSurfaces, type SiteTheme } from '@/lib/site-theme';
 import diwaliToran from '@/assets/diwali-toran.webp';
 import chhathToran from '@/assets/chhath-toran.webp';
 import { Button } from "@/components/ui/button";
@@ -20,22 +20,21 @@ export function SiteHeader() {
   const isGlobalPage = pathname.startsWith("/global-presence");
   const activeMarket = isGlobalPage ? findMarket(pathname.split("/")[2] ?? "") : undefined;
   const [theme, setTheme] = useState<SiteTheme>("festive");
-  const [variant, setVariant] = useState<FestiveVariant>("diwali");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setTheme(readSiteTheme(localStorage.getItem("riloyd-theme")));
   }, []);
 
-  // Festive theme alternates Diwali and Chhath Puja on each 5-minute mark.
+  // Festive stays in Chhath Puja colours; only the garland and pictures swap Chhath ↔ Diwali every 5 seconds.
   useEffect(() => {
+    applySiteTheme(theme);
+    if (theme !== "festive") return;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const tick = () => {
       const now = Date.now();
-      const current = festiveVariantAt(now);
-      setVariant(current);
-      applySiteTheme(theme, current);
-      if (theme === "festive") timer = setTimeout(tick, msUntilNextFestiveSwitch(now) + 50);
+      applyFestiveDecoration(festiveDecorationAt(now));
+      timer = setTimeout(tick, msUntilNextDecorationSwitch(now) + 20);
     };
     tick();
     return () => clearTimeout(timer);
@@ -46,7 +45,7 @@ export function SiteHeader() {
     setTheme(next);
     localStorage.setItem("riloyd-theme", next);
   }
-  const lightSurfaces = usesLightSurfaces(theme, variant);
+  const lightSurfaces = usesLightSurfaces(theme);
   const nextLabel = siteThemeLabels[nextSiteTheme(theme)];
 
   const navItems = [
@@ -72,7 +71,7 @@ export function SiteHeader() {
       {navItems.map((item) => activeMarket && activeMarket.slug !== "india" && item.label === "Services" ? <Link key={item.label} to="/global-presence/$slug" params={{ slug: activeMarket.slug }} hash="services" onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold">Services</Link> : <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="border-b border-border py-3 text-sm font-semibold last:border-0">{item.label}</Link>)}
       <Link to="/register" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-bold text-primary">Register Now →</Link>
     </nav>}
-    {theme === 'festive' && <div className={`diwali-decoration ${variant}-decoration`} aria-hidden="true" title={festiveVariantLabels[variant]}><div className="diwali-toran" style={{ backgroundImage: `url(${variant === 'chhath' ? chhathToran : diwaliToran})` }} /></div>}
+    {theme === 'festive' && <div className="diwali-decoration" aria-hidden="true"><div className="diwali-toran festive-toran-chhath" style={{ backgroundImage: `url(${chhathToran})` }} /><div className="diwali-toran festive-toran-diwali" style={{ backgroundImage: `url(${diwaliToran})` }} /></div>}
   </header>;
 }
 
