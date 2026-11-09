@@ -26,9 +26,9 @@ import {
 } from "lucide-react";
 import heroAsset from "@/assets/local/riloyd-mountain.png.optimized.webp";
 import officeAsset from "@/assets/local/riloyd-office.png.optimized.webp";
-import diwaliHero from "@/assets/diwali-home-hero.webp";
-import diwaliOffice from "@/assets/diwali-home-office.webp";
-import diwaliContact from "@/assets/diwali-home-contact.webp";
+import diwaliHero from "@/assets/festive-diwali-hero-light.webp";
+import diwaliOffice from "@/assets/festive-diwali-office-light.webp";
+import diwaliContact from "@/assets/festive-diwali-contact-light.webp";
 import chhathHero from "@/assets/chhath-home-hero.webp";
 import chhathOffice from "@/assets/chhath-home-office.webp";
 import chhathContact from "@/assets/chhath-home-contact.webp";
@@ -115,7 +115,7 @@ function Index() {
           src={heroAsset}
           alt="Two mountaineers helping each other reach a summit"
           className="absolute inset-0 h-full w-full object-cover object-[63%_38%] lg:object-[75%_38%]" decoding="async" fetchPriority="high" />
-        <img src={diwaliHero} alt="" aria-hidden="true" width={1600} height={853} className="diwali-art absolute inset-0 h-full w-full object-cover object-[70%_40%]" loading="lazy" decoding="async" />
+        <img src={diwaliHero} alt="" aria-hidden="true" width={1600} height={864} className="diwali-art absolute inset-0 h-full w-full object-cover object-[70%_40%]" loading="lazy" decoding="async" />
         <img src={chhathHero} alt="" aria-hidden="true" width={1600} height={853} className="chhath-art absolute inset-0 h-full w-full object-cover object-[70%_40%]" loading="lazy" decoding="async" />
         <div className="diwali-sparkles" aria-hidden="true" />
         <div className="hero-shade absolute inset-0" />
