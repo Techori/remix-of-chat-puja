@@ -173,7 +173,7 @@ function Index() {
       <section id="about" className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-[1380px] lg:grid-cols-[2.15fr_1fr]">
           <div className="why-panel relative min-h-[350px] overflow-hidden px-5 py-10 sm:px-6 lg:min-h-[380px] lg:px-12 lg:py-11">
-            <img src={officeAsset} alt="Riloyd corporate office at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+            <img src={officeAsset} alt="Riloyd corporate office at sunset" className="base-art absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <img src={diwaliOffice} alt="" aria-hidden="true" width={1536} height={768} className="diwali-art absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <img src={chhathOffice} alt="" aria-hidden="true" width={1536} height={768} className="chhath-art absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <div className="why-shade absolute inset-0" />
@@ -198,7 +198,7 @@ function Index() {
       <DeferredContent className="min-h-[540px]" fallback={<section className="min-h-[540px] border-b border-border bg-background" aria-busy="true" />}><Suspense fallback={<section className="min-h-[540px] border-b border-border bg-background" aria-busy="true" />}><ServiceAdvisor /></Suspense></DeferredContent>
 
       <section id="contact" className="contact-band relative min-h-[8cm] overflow-hidden border-b border-border sm:h-[8cm]">
-        <img src={contactOfficeAsset} alt="Riloyd reception office overlooking a city at sunset" className="contact-background absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={contactOfficeAsset} alt="Riloyd reception office overlooking a city at sunset" className="base-art contact-background absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <img src={diwaliContact} alt="" aria-hidden="true" width={1920} height={640} className="diwali-art absolute inset-0 h-full w-full object-cover object-right" loading="lazy" decoding="async" />
         <img src={chhathContact} alt="" aria-hidden="true" width={1920} height={640} className="chhath-art absolute inset-0 h-full w-full object-cover object-right" loading="lazy" decoding="async" />
         <div className="contact-shade absolute inset-0" />

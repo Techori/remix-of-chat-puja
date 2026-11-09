@@ -622,3 +622,5 @@
   .chhath .contact-link small { color: oklch(0.36 0.05 45); }
   .chhath .service-item svg:first-child { width: 28px; height: 28px; }
 }
+/* Festive covers the regular photos with festival pictures, so skip loading the hidden ones. */
+.chhath .base-art { display: none; }
