@@ -29,6 +29,9 @@ import officeAsset from "@/assets/local/riloyd-office.png.optimized.webp";
 import diwaliHero from "@/assets/diwali-home-hero.webp";
 import diwaliOffice from "@/assets/diwali-home-office.webp";
 import diwaliContact from "@/assets/diwali-home-contact.webp";
+import chhathHero from "@/assets/chhath-home-hero.webp";
+import chhathOffice from "@/assets/chhath-home-office.webp";
+import chhathContact from "@/assets/chhath-home-contact.webp";
 import contactOfficeAsset from "@/assets/local/riloyd-contact-office.png.optimized.webp";
 const ServiceAdvisor = lazy(() => import("@/components/service-advisor").then(module => ({ default: module.ServiceAdvisor })));
 const FundingPopup = lazy(() => import("@/components/funding-popup").then(module => ({ default: module.FundingPopup })));
@@ -113,6 +116,7 @@ function Index() {
           alt="Two mountaineers helping each other reach a summit"
           className="absolute inset-0 h-full w-full object-cover object-[63%_38%] lg:object-[75%_38%]" decoding="async" fetchPriority="high" />
         <img src={diwaliHero} alt="" aria-hidden="true" width={1600} height={853} className="diwali-art absolute inset-0 h-full w-full object-cover object-[70%_40%]" loading="lazy" decoding="async" />
+        <img src={chhathHero} alt="" aria-hidden="true" width={1600} height={853} className="chhath-art absolute inset-0 h-full w-full object-cover object-[70%_40%]" loading="lazy" decoding="async" />
         <div className="diwali-sparkles" aria-hidden="true" />
         <div className="hero-shade absolute inset-0" />
 
@@ -171,6 +175,7 @@ function Index() {
           <div className="why-panel relative min-h-[350px] overflow-hidden px-5 py-10 sm:px-6 lg:min-h-[380px] lg:px-12 lg:py-11">
             <img src={officeAsset} alt="Riloyd corporate office at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <img src={diwaliOffice} alt="" aria-hidden="true" width={1536} height={768} className="diwali-art absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+            <img src={chhathOffice} alt="" aria-hidden="true" width={1536} height={768} className="chhath-art absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <div className="why-shade absolute inset-0" />
             <div className="relative z-10 max-w-xl">
               <p className="eyebrow text-[10px] font-bold uppercase">Why Riloyd</p>
@@ -195,6 +200,7 @@ function Index() {
       <section id="contact" className="contact-band relative min-h-[8cm] overflow-hidden border-b border-border sm:h-[8cm]">
         <img src={contactOfficeAsset} alt="Riloyd reception office overlooking a city at sunset" className="contact-background absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <img src={diwaliContact} alt="" aria-hidden="true" width={1920} height={640} className="diwali-art absolute inset-0 h-full w-full object-cover object-right" loading="lazy" decoding="async" />
+        <img src={chhathContact} alt="" aria-hidden="true" width={1920} height={640} className="chhath-art absolute inset-0 h-full w-full object-cover object-right" loading="lazy" decoding="async" />
         <div className="contact-shade absolute inset-0" />
         <div className="relative mx-auto flex h-full max-w-[1380px] flex-col justify-center px-5 py-6 sm:px-6 lg:px-12">
           <div className="max-w-4xl">
