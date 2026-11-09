@@ -120,5 +120,6 @@
 - [x] Diwali theme: readable text colours in header and hero (desktop + mobile)
 - [x] Chhath Puja festive design; Festive theme alternates Diwali ↔ Chhath every 5 minutes; switch keeps only Dark / Light / Festive
 - [x] Chhath home hero white veil at 80% transparency (20% opacity)
-- [ ] Festive = Chhath Puja only; garland + pictures swap Chhath↔Diwali every 2 seconds
+- [ ] Festive = Chhath Puja only; garland + pictures swap Chhath↔Diwali every 5 seconds (was 2)
+- [ ] Festive only: every white haze over pictures (hero, Why Riloyd, Get in Touch, all pages) 90% see-through
 - [ ] Admin setup check: country logos + programme fees tables recognised; admin panel loads them
