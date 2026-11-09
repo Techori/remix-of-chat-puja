@@ -23,7 +23,7 @@ export function nextSiteTheme(theme: SiteTheme): SiteTheme {
 
 /** Rotation is tied to the clock so every visitor sees the same festival at the same time. */
 export function festiveVariantAt(timeMs: number): FestiveVariant {
-  return festiveVariants[Math.floor(timeMs / FESTIVE_ROTATION_MS) % festiveVariants.length];
+  return festiveVariants[Math.floor(timeMs / FESTIVE_ROTATION_MS) % festiveVariants.length] ?? 'diwali';
 }
 
 export function msUntilNextFestiveSwitch(timeMs: number): number {
