@@ -502,3 +502,4 @@
 .diwali .hero-shell p.text-soft, .diwali .hero-shell .text-soft { color: oklch(0.95 0.035 85); }
 @media (max-width: 1023px) { .diwali .hero-shade { background: linear-gradient(180deg, oklch(0.1 0.04 15 / .7) 0%, oklch(0.1 0.04 15 / .82) 55%, oklch(0.1 0.04 15 / .6) 100%); } }
 .diwali .young-challenge-page { --muted-foreground: oklch(0.9 0.035 85); }
+.diwali .hero-shell h1 .text-primary { text-shadow: none; filter: drop-shadow(0 2px 6px oklch(0 0 0 / .8)); }
