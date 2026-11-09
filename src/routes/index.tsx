@@ -117,7 +117,7 @@ function Index() {
         <div className="hero-shade absolute inset-0" />
 
         <div className="relative z-10 mx-auto flex max-w-[1380px] px-5 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10 lg:px-12 lg:pt-12">
-          <div className="max-w-2xl">
+          <div className="min-w-0 max-w-2xl">
             <p className="eyebrow mb-4 text-xs font-bold uppercase">Business beyond limits</p>
             <h1 className="headline text-[clamp(2.75rem,5.2vw,5.5rem)] font-black uppercase leading-[0.87]">
               Strategy today.<br />A stronger<br /><span className="text-primary">tomorrow.</span>
@@ -129,7 +129,7 @@ function Index() {
             <Link to="/contact" className="solid-cta mt-6 inline-flex items-center gap-3 rounded-md bg-primary px-8 py-3.5 text-sm font-extrabold text-primary-foreground">
               Let&apos;s Talk <ArrowRight size={17} />
             </Link>
-            <div className="mt-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.38em] text-soft">
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-soft sm:tracking-[0.38em]">
               <span>People</span><i /><span>Ideas</span><i /><span>Capital</span><i /><span>Growth</span><b />
             </div>
           </div>
