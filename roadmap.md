@@ -115,4 +115,3 @@
 
 - [x] Remove Bigger/Bolder/Brighter/Together from home hero in Diwali theme
 - [x] Confirm empty migration set
-- [ ] Link riloyd Search Console connection
