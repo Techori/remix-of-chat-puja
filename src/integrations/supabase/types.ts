@@ -215,6 +215,24 @@ export type Database = {
         }
         Relationships: []
       }
+      payment_provider_tokens: {
+        Row: {
+          access_token: string
+          expires_at: string
+          provider: string
+        }
+        Insert: {
+          access_token: string
+          expires_at: string
+          provider: string
+        }
+        Update: {
+          access_token?: string
+          expires_at?: string
+          provider?: string
+        }
+        Relationships: []
+      }
       people_profiles: {
         Row: {
           bio: string
@@ -295,7 +313,10 @@ export type Database = {
           payer_name: string
           payer_phone: string
           programme: string
-          razorpay_order_id: string
+          provider: string
+          provider_payment_id: string | null
+          provider_reference: string | null
+          razorpay_order_id: string | null
           razorpay_payment_id: string | null
           status: string
         }
@@ -309,7 +330,10 @@ export type Database = {
           payer_name: string
           payer_phone?: string
           programme?: string
-          razorpay_order_id: string
+          provider?: string
+          provider_payment_id?: string | null
+          provider_reference?: string | null
+          razorpay_order_id?: string | null
           razorpay_payment_id?: string | null
           status?: string
         }
@@ -323,7 +347,10 @@ export type Database = {
           payer_name?: string
           payer_phone?: string
           programme?: string
-          razorpay_order_id?: string
+          provider?: string
+          provider_payment_id?: string | null
+          provider_reference?: string | null
+          razorpay_order_id?: string | null
           razorpay_payment_id?: string | null
           status?: string
         }
