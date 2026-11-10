@@ -29,4 +29,13 @@ export const paymentResultSchema = z.object({
   signature: z.string().regex(/^[a-f0-9]{64}$/),
 });
 
+export const zohoResultSchema = z.object({
+  sessionId: z.string().regex(/^\d{6,25}$/),
+  paymentId: z.string().regex(/^\d{6,25}$/),
+});
+
+export const paymentProviders = ["razorpay", "zoho"] as const;
+export type PaymentProvider = (typeof paymentProviders)[number];
+export const paymentProviderLabels: Record<PaymentProvider, string> = { razorpay: "Razorpay", zoho: "Zoho Payments" };
+
 export const paymentStatuses = ["created", "paid", "failed"] as const;
