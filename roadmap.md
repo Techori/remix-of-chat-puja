@@ -131,3 +131,5 @@
 
 - [ ] Add Razorpay online payment for Funding Programme fee (₹999 + 18% GST) with admin Payments list; awaiting Razorpay keys
 - [ ] Desktop footer: shift Contact ~1.5cm right, give Explore ~1cm more space, rebalance all footer columns
+- [ ] Explain Razorpay requirements to user
+- [ ] Connect Zoho Payments as a payment option
