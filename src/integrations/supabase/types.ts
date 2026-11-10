@@ -284,6 +284,51 @@ export type Database = {
         }
         Relationships: []
       }
+      programme_payments: {
+        Row: {
+          amount_paise: number
+          created_at: string
+          currency: string
+          id: string
+          paid_at: string | null
+          payer_email: string
+          payer_name: string
+          payer_phone: string
+          programme: string
+          razorpay_order_id: string
+          razorpay_payment_id: string | null
+          status: string
+        }
+        Insert: {
+          amount_paise: number
+          created_at?: string
+          currency?: string
+          id?: string
+          paid_at?: string | null
+          payer_email: string
+          payer_name: string
+          payer_phone?: string
+          programme?: string
+          razorpay_order_id: string
+          razorpay_payment_id?: string | null
+          status?: string
+        }
+        Update: {
+          amount_paise?: number
+          created_at?: string
+          currency?: string
+          id?: string
+          paid_at?: string | null
+          payer_email?: string
+          payer_name?: string
+          payer_phone?: string
+          programme?: string
+          razorpay_order_id?: string
+          razorpay_payment_id?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       prototype_ai_access_state: {
         Row: {
           blocked_at: string

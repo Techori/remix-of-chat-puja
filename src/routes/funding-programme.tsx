@@ -1,6 +1,7 @@
 import type * as React from "react";
 import { useState } from "react";
 import { InternationalEnrolment } from "@/components/international-enrolment";
+import { FundingFeePayment } from "@/components/funding-fee-payment";
 import { programmeFeesQuery } from "@/lib/programme-fees-query";
 import { marketConfigs, marketOrder } from "@/lib/market-config";
 import { indiaRegistrationOptions, indiaRegistrationSummary, summitParticipation, fundingProcess, type ProgrammeCountry } from "@/lib/international-programme";
@@ -404,6 +405,7 @@ function FundingProgramme() {
           <div>
             <p className="text-sm leading-relaxed text-muted-foreground">Register online and tell us about your startup or idea. Evaluation, mentorship and all pitches take place online. Only the summit in Gwalior is offline.</p>
             <a href={ZOHOPUBLIC} target="_blank" rel="noreferrer" className="solid-cta mt-6 inline-flex items-center gap-3 rounded-md bg-primary px-7 py-3 text-sm font-extrabold text-primary-foreground"><Rocket size={16} /> Open Registration Form <ArrowRight size={16} /></a>
+            <FundingFeePayment />
           </div>
           <div className="overflow-hidden rounded-lg border border-border bg-card"><iframe title="Startup Idea Registration Form" src={ZOHOPUBLIC} className="block h-[80vh] w-full border-0" loading="lazy" /></div>
         </div>
