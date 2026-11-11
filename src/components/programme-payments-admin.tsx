@@ -4,7 +4,8 @@ import { useServerFn } from "@tanstack/react-start";
 import { ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
-import { listProgrammePayments, refreshProgrammePayment } from "@/lib/razorpay.functions";
+import { connectZohoPayments, getPaymentSetupStatus, listProgrammePayments, refreshProgrammePayment } from "@/lib/razorpay.functions";
+import { Input } from "./ui/input";
 import { formatPaise, paymentProviderLabels, type PaymentProvider } from "@/lib/razorpay-payment";
 
 export function ProgrammePaymentsAdmin() {
@@ -19,7 +20,26 @@ export function ProgrammePaymentsAdmin() {
     onError: error => toast.error(error.message),
   });
   const count = query.data?.count ?? 0;
+  const setupFn = useServerFn(getPaymentSetupStatus);
+  const connectFn = useServerFn(connectZohoPayments);
+  const setup = useQuery({ queryKey: ["admin-payment-setup"], queryFn: () => setupFn() });
+  const [code, setCode] = useState("");
+  const connect = useMutation({
+    mutationFn: () => connectFn({ data: { code } }),
+    onSuccess: async () => { setCode(""); await queryClient.invalidateQueries({ queryKey: ["admin-payment-setup"] }); await queryClient.invalidateQueries({ queryKey: ["payment-options"] }); toast.success("Zoho Payments connected."); },
+    onError: error => toast.error(error.message),
+  });
+  const state = (ok: boolean | undefined) => ok ? "Ready" : "Not set up";
   return <section className="mt-8">
+    <div className="mb-8 grid gap-4 rounded-md border border-border bg-surface p-5 sm:grid-cols-2">
+      <div><p className="text-sm font-bold">Razorpay</p><p className="mt-1 text-xs text-muted-foreground">{setup.isLoading ? "Checking…" : state(setup.data?.razorpay)}</p></div>
+      <div><p className="text-sm font-bold">Zoho Payments</p><p className="mt-1 text-xs text-muted-foreground">{setup.isLoading ? "Checking…" : setup.data?.zohoConnected ? "Ready" : setup.data?.zohoKeys ? "Keys saved — connect your account below" : "Not set up"}</p>
+        {setup.data?.zohoKeys && !setup.data.zohoConnected && <form className="mt-3 flex flex-col gap-2 sm:flex-row" onSubmit={e => { e.preventDefault(); connect.mutate(); }}>
+          <Input aria-label="Zoho Self Client code" placeholder="1000.xxxx…" value={code} onChange={e => setCode(e.target.value)} autoComplete="off" />
+          <Button type="submit" disabled={connect.isPending || !code}>Connect</Button>
+        </form>}
+      </div>
+    </div>
     <div className="flex items-center justify-between gap-4"><h2 className="text-xl font-bold">Funding Programme payments</h2>
       <Button variant="outline" size="sm" onClick={() => void query.refetch()}><RefreshCw size={14} /> Reload</Button></div>
     <p className="mt-1 text-xs text-muted-foreground">{count} payment attempts · "created" means the payer opened checkout but payment is not confirmed yet.</p>

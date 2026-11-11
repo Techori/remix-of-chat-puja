@@ -6,7 +6,7 @@ import { fundingFeeTotalPaise, payerSchema, paymentResultSchema, zohoResultSchem
 // Which online methods are ready; exposes only booleans, never credentials.
 export const getPaymentOptions = createServerFn({ method: "GET" }).handler(async () => {
   const { zohoConfigured } = await import("./zoho-payments.server");
-  return { razorpay: Boolean(process.env["RAZORPAY_KEY_ID"] && process.env["RAZORPAY_KEY_SECRET"]), zoho: zohoConfigured() };
+  return { razorpay: Boolean(process.env["RAZORPAY_KEY_ID"] && process.env["RAZORPAY_KEY_SECRET"]), zoho: await zohoConfigured() };
 });
 
 export const createFundingPaymentOrder = createServerFn({ method: "POST" })
@@ -141,4 +141,22 @@ export const refreshProgrammePayment = createServerFn({ method: "POST" })
       if (updateError) throw new Error("Payment status could not be saved.");
     }
     return { status: next };
+  });
+
+export const getPaymentSetupStatus = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    await requireAdmin(context);
+    const { zohoKeysPresent, zohoConfigured } = await import("./zoho-payments.server");
+    return { razorpay: Boolean(process.env["RAZORPAY_KEY_ID"] && process.env["RAZORPAY_KEY_SECRET"]), zohoKeys: zohoKeysPresent(), zohoConnected: await zohoConfigured() };
+  });
+
+export const connectZohoPayments = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => z.object({ code: z.string().trim().regex(/^1000\.[A-Za-z0-9.]{20,200}$/, "Paste the code Zoho generated (it starts with 1000.)") }).parse(input))
+  .handler(async ({ context, data }) => {
+    await requireAdmin(context);
+    const { connectZoho } = await import("./zoho-payments.server");
+    await connectZoho(data.code);
+    return { ok: true };
   });
