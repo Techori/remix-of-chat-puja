@@ -1,6 +1,7 @@
 import drizzleSource from '../../drizzle/schema.ts?raw';
 // Migration history may be reset on remix, so read whatever SQL files exist instead of fixed names.
-const migrationSources = Object.values(import.meta.glob('../../drizzle/migrations/*.sql', { query: '?raw', import: 'default', eager: true })) as string[];
+const migrationSources = Object.entries(import.meta.glob('../../drizzle/migrations/*.sql', { query: '?raw', import: 'default', eager: true }) as Record<string, string>)
+  .sort(([a], [b]) => a.localeCompare(b)).map(([, sql]) => sql);
 
 export type Column = { name: string; type: string; nullable: boolean };
 export type Table = { name: string; columns: Column[]; rls: boolean };
@@ -19,6 +20,23 @@ export function parseSqlTables(source: string): Table[] {
       return [{ name: column[1], type: normalizeType(column[2].replace('public.', '')), nullable: !/NOT NULL|PRIMARY KEY/i.test(column[3] ?? '') }];
     }),
   }));
+}
+// Later migrations may add columns or relax NOT NULL; apply those in file order so expectations match the live schema.
+export function applySqlAlters(tables: Table[], source: string): Table[] {
+  const sql = source.replace(/^-- /gm, '');
+  for (const match of sql.matchAll(/ALTER TABLE public\.(\w+)\s+([\s\S]*?);/g)) {
+    const table = tables.find(t => t.name === match[1]);
+    if (!table) continue;
+    for (const clause of splitSqlColumns(match[2] ?? '')) {
+      const text = clause.trim();
+      const add = text.match(/^ADD COLUMN (?:IF NOT EXISTS )?(\w+)\s+(uuid|text\[\]|text|jsonb|timestamptz|integer|boolean|date|bigint)(.*)/i);
+      if (add?.[1] && add[2]) { table.columns.push({ name: add[1], type: normalizeType(add[2]), nullable: !/NOT NULL|PRIMARY KEY/i.test(add[3] ?? '') }); continue; }
+      const nullability = text.match(/^ALTER COLUMN (\w+) (DROP|SET) NOT NULL/i);
+      const column = nullability ? table.columns.find(c => c.name === nullability[1]) : undefined;
+      if (column && nullability) column.nullable = nullability[2]?.toUpperCase() === 'DROP';
+    }
+  }
+  return tables;
 }
 function splitSqlColumns(body: string) {
   let depth = 0, quoted = false, start = 0;
@@ -40,6 +58,7 @@ const baseline = (name: string, fields: string): Table => ({ name, rls: true, co
   return [{ name: column, type: normalizeType(type.replace('?', '')), nullable: type.endsWith('?') }];
 }) });
 const parsedTables = migrationSources.flatMap(parseSqlTables);
+for (const source of migrationSources) applySqlAlters(parsedTables, source);
 export const expectedTables: Table[] = [
   ...parsedTables,
   ...[
