@@ -1,0 +1,1 @@
+ALTER TABLE public.payment_provider_tokens ADD COLUMN refresh_token text;

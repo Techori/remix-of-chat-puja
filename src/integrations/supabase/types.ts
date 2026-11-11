@@ -220,16 +220,19 @@ export type Database = {
           access_token: string
           expires_at: string
           provider: string
+          refresh_token: string | null
         }
         Insert: {
           access_token: string
           expires_at: string
           provider: string
+          refresh_token?: string | null
         }
         Update: {
           access_token?: string
           expires_at?: string
           provider?: string
+          refresh_token?: string | null
         }
         Relationships: []
       }
