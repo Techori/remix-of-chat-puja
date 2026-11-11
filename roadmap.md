@@ -129,7 +129,7 @@
 - [x] Remove white box behind home hero paragraph ('RILOYD partners with…')
 - [x] Add 'RILOYD Foundation' button to the menu
 
-- [ ] Add Razorpay online payment for Funding Programme fee (₹999 + 18% GST) with admin Payments list; awaiting Razorpay keys
-- [ ] Desktop footer: shift Contact ~1.5cm right, give Explore ~1cm more space, rebalance all footer columns
-- [ ] Explain Razorpay requirements to user
-- [ ] Connect Zoho Payments as a payment option
+- [ ] Razorpay online payment for Funding Programme fee (₹999 + 18% GST) and admin Payments list built; live test awaiting Razorpay keys
+- [x] Desktop footer: Contact moved ~1.5cm right, Explore ~1cm wider; checked at 1280/1440/1920
+- [x] Explain Razorpay requirements to user
+- [ ] Zoho Payments option built alongside Razorpay; awaiting Zoho keys and admin connect step
