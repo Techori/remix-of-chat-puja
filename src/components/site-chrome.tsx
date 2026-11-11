@@ -100,7 +100,7 @@ export function SiteFooter() {
     return () => observer.disconnect();
   }, []);
   return <footer className="border-t border-border bg-footer text-foreground">
-    <div className="mx-auto grid max-w-[1380px] grid-cols-6 gap-x-4 gap-y-[2mm] px-5 pt-[5mm] pb-7 sm:gap-y-4 sm:px-6 lg:px-12 xl:grid-cols-[1.6fr_.6fr_.75fr_.8fr_.85fr_.85fr_.9fr_.9fr]">
+    <div className="mx-auto grid max-w-[1380px] grid-cols-6 gap-x-4 gap-y-[2mm] px-5 pt-[5mm] pb-7 sm:gap-y-4 sm:px-6 lg:px-12 xl:grid-cols-[1.6fr_.84fr_.75fr_.8fr_.91fr_.91fr_.72fr_.72fr]">
       <div className="order-1 col-span-6 xl:col-span-1"><div className="flex items-center gap-[2mm] sm:block"><Link to="/" aria-label="Riloyd home" className="-ml-[3mm] block w-[40%] shrink-0 sm:w-auto"><img src={theme === "light" ? darkLogo : logoAsset} alt="Riloyd" loading="lazy" className="h-auto w-full sm:w-36" decoding="async" /></Link><p className="flex-1 min-w-0 text-[11px] leading-[1.5] text-muted-foreground sm:mt-[2mm] sm:text-xs"><span className="block">RILOYD helps ambitious businesses</span><span className="block">find expertise, capital and</span><span className="block">opportunities for sustainable growth.</span></p></div></div>
       <div className="order-2 col-span-2 sm:col-span-2 xl:col-span-1"><h2 className="text-xs font-bold">Explore</h2><div className="mt-3 flex flex-col gap-1.5 text-xs text-muted-foreground"><Link to="/">Home</Link><Link to="/about">About</Link><Link to="/contact">Contact</Link><Link to="/register">Register</Link><Link to="/funding-programme">Funding Programme</Link><Link to="/prototype-funding">Prototype Funding</Link><Link to="/young-innovators-2026">Young Innovators 2026</Link></div>
       </div>

@@ -45,3 +45,4 @@
 - Prototype AI payment/permission pauses need an explicit admin reset, never automatic retries.
 
 - Student review sets only approved/rejected via an admin-validated server function and column-scoped RLS; approval never publishes minors or confirms payment.
+- Online programme fees go through validated server functions that create the provider order/session server-side from the shared browser-safe fee module and mark payments paid only after the provider's API confirms amount and status; admin reads are RLS-scoped and provider tokens live in a service-role-only table, so browsers can never set prices or forge a paid record.
