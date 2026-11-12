@@ -17,6 +17,8 @@ export type Database = {
       contact_submissions: {
         Row: {
           admin_notes: string
+          coordinator_code: string | null
+          coordinator_id: string | null
           created_at: string
           email: string
           id: string
@@ -29,6 +31,8 @@ export type Database = {
         }
         Insert: {
           admin_notes?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           email: string
           id?: string
@@ -41,6 +45,8 @@ export type Database = {
         }
         Update: {
           admin_notes?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           email?: string
           id?: string
@@ -50,6 +56,50 @@ export type Database = {
           phone?: string
           service?: string
           status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contact_submissions_coordinator_id_fkey"
+            columns: ["coordinator_id"]
+            isOneToOne: false
+            referencedRelation: "coordinators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      coordinators: {
+        Row: {
+          active: boolean
+          city: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          notes: string
+          phone: string
+          referral_code: string
+        }
+        Insert: {
+          active?: boolean
+          city?: string
+          created_at?: string
+          email?: string
+          full_name: string
+          id?: string
+          notes?: string
+          phone?: string
+          referral_code: string
+        }
+        Update: {
+          active?: boolean
+          city?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          notes?: string
+          phone?: string
+          referral_code?: string
         }
         Relationships: []
       }
@@ -215,6 +265,56 @@ export type Database = {
         }
         Relationships: []
       }
+      foundation_submissions: {
+        Row: {
+          admin_notes: string
+          coordinator_code: string | null
+          coordinator_id: string | null
+          created_at: string
+          details: Json
+          email: string
+          full_name: string
+          id: string
+          kind: string
+          phone: string
+          status: string
+        }
+        Insert: {
+          admin_notes?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
+          created_at?: string
+          details?: Json
+          email: string
+          full_name: string
+          id?: string
+          kind: string
+          phone: string
+          status?: string
+        }
+        Update: {
+          admin_notes?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
+          created_at?: string
+          details?: Json
+          email?: string
+          full_name?: string
+          id?: string
+          kind?: string
+          phone?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "foundation_submissions_coordinator_id_fkey"
+            columns: ["coordinator_id"]
+            isOneToOne: false
+            referencedRelation: "coordinators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       payment_provider_tokens: {
         Row: {
           access_token: string
@@ -305,9 +405,73 @@ export type Database = {
         }
         Relationships: []
       }
+      programme_applications: {
+        Row: {
+          admin_notes: string
+          amount_paise: number
+          application_code: string
+          coordinator_code: string | null
+          coordinator_id: string | null
+          created_at: string
+          details: Json
+          email: string
+          full_name: string
+          id: string
+          phone: string
+          programme: string
+          status: string
+          submission_status: string
+          submitted_at: string | null
+        }
+        Insert: {
+          admin_notes?: string
+          amount_paise: number
+          application_code: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
+          created_at?: string
+          details?: Json
+          email: string
+          full_name: string
+          id?: string
+          phone: string
+          programme: string
+          status?: string
+          submission_status?: string
+          submitted_at?: string | null
+        }
+        Update: {
+          admin_notes?: string
+          amount_paise?: number
+          application_code?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
+          created_at?: string
+          details?: Json
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string
+          programme?: string
+          status?: string
+          submission_status?: string
+          submitted_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "programme_applications_coordinator_id_fkey"
+            columns: ["coordinator_id"]
+            isOneToOne: false
+            referencedRelation: "coordinators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       programme_payments: {
         Row: {
           amount_paise: number
+          application_id: string | null
+          application_kind: string | null
           created_at: string
           currency: string
           id: string
@@ -325,6 +489,8 @@ export type Database = {
         }
         Insert: {
           amount_paise: number
+          application_id?: string | null
+          application_kind?: string | null
           created_at?: string
           currency?: string
           id?: string
@@ -342,6 +508,8 @@ export type Database = {
         }
         Update: {
           amount_paise?: number
+          application_id?: string | null
+          application_kind?: string | null
           created_at?: string
           currency?: string
           id?: string
@@ -415,6 +583,8 @@ export type Database = {
           admin_notes: string
           application_code: string
           category: string
+          coordinator_code: string | null
+          coordinator_id: string | null
           created_at: string
           details: Json
           document_name: string | null
@@ -429,6 +599,8 @@ export type Database = {
           admin_notes?: string
           application_code: string
           category: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           details?: Json
           document_name?: string | null
@@ -443,6 +615,8 @@ export type Database = {
           admin_notes?: string
           application_code?: string
           category?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           details?: Json
           document_name?: string | null
@@ -453,7 +627,15 @@ export type Database = {
           phone?: string
           status?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "registration_applications_coordinator_id_fkey"
+            columns: ["coordinator_id"]
+            isOneToOne: false
+            referencedRelation: "coordinators"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
@@ -478,6 +660,8 @@ export type Database = {
           application_code: string
           city: string
           consent_at: string
+          coordinator_code: string | null
+          coordinator_id: string | null
           created_at: string
           fee_amount: number
           gst_percent: number
@@ -491,11 +675,15 @@ export type Database = {
           school_class: number
           status: string
           student_name: string
+          submission_status: string
+          submitted_at: string | null
         }
         Insert: {
           application_code: string
           city: string
           consent_at?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           fee_amount: number
           gst_percent?: number
@@ -509,11 +697,15 @@ export type Database = {
           school_class: number
           status?: string
           student_name: string
+          submission_status?: string
+          submitted_at?: string | null
         }
         Update: {
           application_code?: string
           city?: string
           consent_at?: string
+          coordinator_code?: string | null
+          coordinator_id?: string | null
           created_at?: string
           fee_amount?: number
           gst_percent?: number
@@ -527,8 +719,18 @@ export type Database = {
           school_class?: number
           status?: string
           student_name?: string
+          submission_status?: string
+          submitted_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "young_innovators_registrations_coordinator_id_fkey"
+            columns: ["coordinator_id"]
+            isOneToOne: false
+            referencedRelation: "coordinators"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
@@ -557,6 +759,15 @@ export type Database = {
       consume_form_submission_limit: {
         Args: { _key_hash: string }
         Returns: boolean
+      }
+      coordinator_name_for_code: { Args: { _code: string }; Returns: string }
+      coordinator_referral_stats: {
+        Args: never
+        Returns: {
+          coordinator_id: string
+          leads: number
+          submitted: number
+        }[]
       }
       first_admin_setup_status: { Args: never; Returns: string }
       has_role: {

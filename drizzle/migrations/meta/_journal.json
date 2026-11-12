@@ -36,6 +36,13 @@
       "when": 1794367156071,
       "tag": "0004_payment_provider_refresh_token",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794466405806,
+      "tag": "0005_coordinators_paid_applications_foundation",
+      "breakpoints": true
     }
   ]
 }

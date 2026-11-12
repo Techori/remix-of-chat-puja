@@ -134,3 +134,11 @@
 - [x] Desktop footer: Contact moved ~1.5cm right, Explore ~1cm wider; checked at 1280/1440/1920
 - [x] Explain Razorpay requirements to user
 - [ ] Zoho Payments option built (hidden until set up); awaiting Zoho keys from user
+
+## Forms, payments, coordinators, Foundation (12 Nov 2026)
+- [ ] Replace Zoho form (funding page + popup) with an on-site form
+- [ ] Paid forms (Funding, Prototype, Young Innovators): fill form → pay → submitted; unpaid = lead
+- [ ] Coordinator / referral code field on every form
+- [ ] Admin: coordinators with generated referral codes + share links, referral counts
+- [ ] Admin: programme applications (submitted vs leads)
+- [ ] RILOYD Foundation single-page site at /foundation (own header/footer, Hindi/English)
