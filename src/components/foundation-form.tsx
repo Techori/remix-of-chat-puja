@@ -52,14 +52,15 @@ export function BasicContactFields() {
 
 export function useFoundationSubmit(kind: FoundationKind, fieldNames: string[]) {
   const submit = useServerFn(submitFoundationForm);
-  const [state, setState] = useState<{ status: "idle" | "sending" | "sent"; error?: string }>({ status: "idle" });
+  const [state, setState] = useState<{ status: "idle" | "sending" | "sent"; error?: string | undefined }>({ status: "idle" });
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const get = (k: string) => String(form.get(k) ?? "");
-    const details = Object.fromEntries(fieldNames.map(n => [n, get(n)]).filter(([, v]) => v.trim()));
+    const details: Record<string, string> = {};
+    for (const n of fieldNames) { const v = get(n).trim(); if (v) details[n] = v; }
     const parsed = foundationSubmissionSchema.safeParse({ kind, fullName: get("fullName"), email: get("email"), phone: get("phone"), coordinatorCode: get("coordinatorCode"), details, message: get("message") });
-    if (!parsed.success) { setState({ status: "idle", error: parsed.error.issues[0]?.message }); return; }
+    if (!parsed.success) { setState({ status: "idle", error: parsed.error.issues[0]?.message ?? "Please check the form and try again." }); return; }
     setState({ status: "sending" });
     try { await submit({ data: parsed.data }); setState({ status: "sent" }); }
     catch (error) { setState({ status: "idle", error: error instanceof Error ? error.message : "Something went wrong. Please try again." }); }
