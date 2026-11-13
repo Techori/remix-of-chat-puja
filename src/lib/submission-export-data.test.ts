@@ -4,8 +4,9 @@ const application: Application = {
   id: "entry-1", application_code: "RIL-26-TEST", category: "mentor", full_name: "Test Mentor",
   email: "test@example.com", phone: "9876543210", details: { mentorAreas: "Funding ₹10L", expertise: ["Strategy", "Funding"] },
   status: "new", admin_notes: "Private note", created_at: "2026-10-28T06:00:00Z", document_path: "private/test.pdf", document_name: "resume.pdf",
+  coordinator_code: null, coordinator_id: null,
 };
-const enquiry: Enquiry = { id: "enquiry-1", name: "Test Contact", email: "test@example.com", phone: "9876543210", service: "Funding", industry: "Technology", message: '=HYPERLINK("https://example.com")', status: "new", admin_notes: "", created_at: "2026-10-28T06:00:00Z" };
+const enquiry: Enquiry = { id: "enquiry-1", name: "Test Contact", email: "test@example.com", phone: "9876543210", service: "Funding", industry: "Technology", message: '=HYPERLINK("https://example.com")', status: "new", admin_notes: "", created_at: "2026-10-28T06:00:00Z", coordinator_code: null, coordinator_id: null };
 describe("Submission exports", () => {
   it("includes complete registration details and document name without exposing its private path", () => {
     const fields = new Map(submissionFields(application));
