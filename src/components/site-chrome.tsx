@@ -126,8 +126,8 @@ export function SiteFooter() {
           {marketOrder.map((key) => { const market = marketConfigs[key]; return <Link key={key} to="/global-presence/$slug" params={{ slug: market.slug }} aria-label={`Explore Riloyd ${market.name}`} className="flex items-center justify-start"><CountryLogo market={market} className="h-9 w-auto max-w-full object-contain object-left" /></Link>; })}
         </div>
       </div>
-      <div className="contents sm:order-9 sm:col-span-2 sm:block sm:min-w-0 xl:contents">
-      <div className="order-9 col-span-6 text-xs leading-relaxed text-muted-foreground sm:mt-5 xl:col-start-7 xl:col-span-2 xl:row-start-1 xl:mt-0">
+      <div className="contents sm:order-10 sm:col-span-2 sm:block sm:min-w-0 xl:contents">
+      <div className="order-9 col-span-6 text-xs leading-relaxed text-muted-foreground sm:mt-5 xl:col-start-8 xl:col-span-2 xl:row-start-1 xl:mt-0">
         <h2 className="text-sm font-bold text-foreground">Contact</h2>
         <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-[11px] [&>a]:whitespace-nowrap xl:text-[10.5px]">
           <a className="font-medium text-foreground hover:underline" href="mailto:info@riloyd.in">info@riloyd.in</a>
