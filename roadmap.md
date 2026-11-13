@@ -142,3 +142,6 @@
 - [ ] Admin: coordinators with generated referral codes + share links, referral counts
 - [ ] Admin: programme applications (submitted vs leads)
 - [ ] RILOYD Foundation single-page site at /foundation (own header/footer, Hindi/English)
+
+- [ ] Build the RILOYD Foundation page on this site (no separate website) and point menu/footer links to it; save Foundation forms to an admin tab
+- [ ] Switch online payments to Zoho Payments only and remove Razorpay from checkout

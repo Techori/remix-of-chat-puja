@@ -64,10 +64,23 @@
   --color-soft: var(--soft);
   --color-surface: var(--surface);
   --color-challenge-gold: var(--challenge-gold);
+  --color-foundation-green: var(--foundation-green);
+  --color-foundation-maroon: var(--foundation-maroon);
+  --color-foundation-gold: var(--foundation-gold);
+  --color-foundation-paper: var(--foundation-paper);
+  --color-foundation-sage: var(--foundation-sage);
+  --color-foundation-ink: var(--foundation-ink);
 }
 
 :root {
   --radius: 0.375rem;
+  /* RILOYD Foundation brand palette: fixed across site themes. */
+  --foundation-green: #123d30;
+  --foundation-maroon: #8b1426;
+  --foundation-gold: #d9b65d;
+  --foundation-paper: #f8f8f5;
+  --foundation-sage: #e8f0ea;
+  --foundation-ink: #17221d;
   --background: oklch(0.055 0 0);
   --footer: oklch(0 0 0);
   --foreground: oklch(0.985 0 0);
